@@ -1,0 +1,6 @@
+{
+  "name": "HabitFlow",
+  "description": "A minimalist habit tracker to form healthy routines, track streaks, and visualize monthly achievements.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

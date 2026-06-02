@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "habit": {
+      "title": "Habit",
+      "description": "Represents a habit tracked by the user in HabitFlow.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the habit."
+        },
+        "userId": {
+          "type": "string",
+          "description": "User ID of the owner of this habit."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the habit (e.g. 물 2L 마시기)."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["건강", "운동", "학습", "마음챙김"],
+          "description": "The active category of the habit."
+        },
+        "frequency": {
+          "type": "string",
+          "enum": ["매일", "주 5회", "주 3회", "주 1회"],
+          "description": "The repetition frequency."
+        },
+        "icon": {
+          "type": "string",
+          "description": "Identifier key for the icon."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Local date string YYYY-MM-DD representing creation date."
+        },
+        "history": {
+          "type": "array",
+          "description": "List of local dates YYYY-MM-DD on which this habit was completed."
+        },
+        "streak": {
+          "type": "integer",
+          "description": "Current active consecutive days streak."
+        },
+        "maxStreak": {
+          "type": "integer",
+          "description": "All time maximum consecutive days streak."
+        }
+      },
+      "required": ["id", "userId", "name", "category", "frequency", "icon", "createdAt", "history", "streak", "maxStreak"]
+    }
+  },
+  "firestore": {
+    "habits/{habitId}": {
+      "schema": { "$ref": "habit" },
+      "description": "Holds the habits registered by each user."
+    }
+  }
+}
